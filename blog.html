@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQPQZKRXKB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GQPQZKRXKB');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>blog // conner brennick</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Conner Brennick's blog - thoughts on software engineering, distributed systems, and technology">
+
+  <!-- Markdown parser -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="main-content">
+      <div class="info">
+        <h1><a href="index.html" class="home-link">conner brennick</a></h1>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/connerbrennick/" class="social-link">linkedin</a> |
+          <a href="https://github.com/brennick" class="social-link">github</a>
+        </div>
+      </div>
+
+      <!-- Blog content dynamically loaded here -->
+      <div id="blog-content"></div>
+    </div>
+  </div>
+
+  <script src="blog.js"></script>
+  <script>
+    // Initialize blog post rendering
+    window.addEventListener('DOMContentLoaded', renderBlogPost);
+    window.addEventListener('hashchange', renderBlogPost);
+  </script>
+</body>
+
+</html>

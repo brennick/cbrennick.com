@@ -29,6 +29,12 @@
         </div>
       </div>
     </div>
+    <!-- Blog section -->
+    <div class="blog-section">
+      <h2>writings</h2>
+      <div id="blog-list"></div>
+      <a href="blog.html" class="view-all-link">view all posts →</a>
+    </div>
     <div class="work-history">
       <div class="company">
         <h3>microsoft</h3>
@@ -76,6 +82,13 @@
       </div>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="blog.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      renderBlogList(5); // Show latest 5 posts
+    });
+  </script>
 </body>
 
 </html>
