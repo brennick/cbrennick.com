@@ -41,7 +41,7 @@ async function renderBlogList(limit = 5) {
     const postElement = document.createElement('div');
     postElement.className = 'blog-post-preview';
     postElement.innerHTML = `
-      <h3><a href="blog.html#${post.id}" class="blog-link">${post.title}</a></h3>
+      <h3><a href="/blog#${post.id}" class="blog-link">${post.title}</a></h3>
       <p class="date">${formatDate(post.date)}</p>
       <p class="summary">${post.summary}</p>
     `;
@@ -49,7 +49,7 @@ async function renderBlogList(limit = 5) {
   });
 }
 
-// Render full blog post on blog.html
+// Render full blog post on /blog
 async function renderBlogPost() {
   const postId = window.location.hash.substring(1);
   if (!postId) {
@@ -65,7 +65,7 @@ async function renderBlogPost() {
       <div class="blog-post">
         <h1>Post not found</h1>
         <p>The post you're looking for doesn't exist.</p>
-        <a href="index.html" class="back-link">← back to home</a>
+        <a href="/" class="back-link">← back to home</a>
       </div>
     `;
     return;
@@ -79,12 +79,12 @@ async function renderBlogPost() {
       <h1>${post.title}</h1>
       <p class="date">${formatDate(post.date)}</p>
       <div class="post-content">${html}</div>
-      <a href="index.html" class="back-link">← back to home</a>
+      <a href="/" class="back-link">← back to home</a>
     </div>
   `;
 }
 
-// Show all posts on blog.html when no hash
+// Show all posts on /blog when no hash
 async function showPostList() {
   const posts = await loadPostIndex();
   const container = document.getElementById('blog-content');
@@ -97,7 +97,7 @@ async function showPostList() {
     container.innerHTML = `
       <div class="blog-post">
         <p class="no-posts">no posts yet. check back soon!</p>
-        <a href="index.html" class="back-link">← back to home</a>
+        <a href="/" class="back-link">← back to home</a>
       </div>
     `;
     return;
@@ -107,13 +107,13 @@ async function showPostList() {
   posts.forEach(post => {
     html += `
       <div class="blog-post-preview">
-        <h3><a href="blog.html#${post.id}" class="blog-link">${post.title}</a></h3>
+        <h3><a href="/blog#${post.id}" class="blog-link">${post.title}</a></h3>
         <p class="date">${formatDate(post.date)}</p>
         <p class="summary">${post.summary}</p>
       </div>
     `;
   });
-  html += '</div><a href="index.html" class="back-link">← back to home</a>';
+  html += '</div><a href="/" class="back-link">← back to home</a>';
   container.innerHTML = html;
 }
 
